@@ -1,3 +1,67 @@
-.ws-button {
- padding: 16px;
+@mixin transition-background() {
+  background-size: 100% 100%;
+  &:hover {
+    background-size: 220% 100%;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #0E142C, 0 0 0 3px #3D5AFE;
+  }
+  &:focus:active {
+    background-size: 320% 100%;
+    border: 1px solid #3D5AFE;
+    box-shadow: none;
+  }
+}
+
+.wsb-button {
+  padding: 0 16px;
+  height: 52px;
+  min-width: 280px;
+  border-radius: 6px;
+  transition: 0.3s all ease-in-out;
+  font-size: 16px;
+  border: 1px solid #3D5AFE;
+  color: rgba(255,255,255,0.85);
+  background: linear-gradient(90deg, #1A1C45, #242E78, #242E78);
+  font-family: rubik;
+  letter-spacing: 3px;
+  font-weight: 100;
+  @include transition-background();
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+
+  }
+
+  svg {
+    margin: 50px calc(100vw / 2 - 60px);
+    visibility: hidden;
+  }
+  svg path {
+    stroke-linecap: round;
+    stroke-width: 4;
+    fill: none;
+
+  }
+
+  // Button-types
+  &__primary {
+    color: white;
+    background: #4A90E2;
+    border: 1px solid #2A70c2;
+  }
+  &__success {}
+  &__danger {}
+  &__transparent {}
+
+  // Button styles
+  &__rounded {
+    border-radius: 100%;
+  }
+  &__dotted {
+    border: 1px dotted;
+  }
 }
